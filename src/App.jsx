@@ -3,6 +3,7 @@ import { fetchDepartures } from "./api";
 import FilterBar from "./components/FilterBar";
 import SummaryCards from "./components/SummaryCards";
 import DeparturesBoard from "./components/DeparturesBoard";
+import "./App.css";
 
 const REFRESH_INTERVAL_MS = 10000;
 
