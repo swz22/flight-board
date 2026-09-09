@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchDepartures } from "./api";
+import DeparturesBoard from "./components/DeparturesBoard";
 
 export default function App() {
   const [flights, setFlights] = useState([]);
@@ -30,7 +31,7 @@ export default function App() {
   return (
     <main className="app">
       <h1>DFW Departures</h1>
-      <p>{flights.length} flights loaded.</p>
+      <DeparturesBoard flights={flights} />
     </main>
   );
 }
