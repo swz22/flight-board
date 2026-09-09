@@ -10,24 +10,28 @@ export default function App() {
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
+  const [terminal, setTerminal] = useState("all");
+
+  function changeTerminal(next) {
+    setTerminal(next);
+    setLoading(true);
+    setError(null);
+  }
 
   useEffect(() => {
-    let ignore = false;
-    fetchDepartures("all")
+    const controller = new AbortController();
+    fetchDepartures(terminal, { signal: controller.signal })
       .then((rows) => {
-        if (ignore) return;
         setFlights(rows);
         setLoading(false);
       })
       .catch((err) => {
-        if (ignore) return;
+        if (err.name === "AbortError") return;
         setError(err.message);
         setLoading(false);
       });
-    return () => {
-      ignore = true;
-    };
-  }, []);
+    return () => controller.abort();
+  }, [terminal]);
 
   useEffect(() => {
     const id = setTimeout(() => setQuery(search), 300);
@@ -43,15 +47,23 @@ export default function App() {
       f.destination.toLowerCase().includes(q),
   );
 
-  if (loading) return <p className="status-msg">Loading departures...</p>;
-  if (error) return <p className="status-msg error">Could not load departures: {error}</p>;
-
   return (
     <main className="app">
       <h1>DFW Departures</h1>
-      <FilterBar search={search} onSearchChange={setSearch} />
-      <SummaryCards flights={visible} />
-      <DeparturesBoard flights={visible} />
+      <FilterBar
+        search={search}
+        onSearchChange={setSearch}
+        terminal={terminal}
+        onTerminalChange={changeTerminal}
+      />
+      {error && <p className="status-msg error">Could not load departures: {error}</p>}
+      {loading && <p className="status-msg">Loading departures...</p>}
+      {!loading && !error && (
+        <>
+          <SummaryCards flights={visible} />
+          <DeparturesBoard flights={visible} />
+        </>
+      )}
     </main>
   );
 }
