@@ -13,24 +13,16 @@ export default function App() {
   const [terminal, setTerminal] = useState("all");
   const [statuses, setStatuses] = useState([]);
   const [tick, setTick] = useState(0);
-
-  function toggleStatus(status) {
-    setStatuses((prev) =>
-      prev.includes(status) ? prev.filter((s) => s !== status) : [...prev, status],
-    );
-  }
-
-  function changeTerminal(next) {
-    setTerminal(next);
-    setLoading(true);
-    setError(null);
-  }
+  const [refreshedAt, setRefreshedAt] = useState(null);
+  const [secondsAgo, setSecondsAgo] = useState(0);
 
   useEffect(() => {
     const controller = new AbortController();
     fetchDepartures(terminal, { signal: controller.signal })
       .then((rows) => {
         setFlights(rows);
+        setRefreshedAt(Date.now());
+        setSecondsAgo(0);
         setLoading(false);
       })
       .catch((err) => {
@@ -47,9 +39,27 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    if (refreshedAt === null) return;
+    const id = setInterval(() => setSecondsAgo((s) => s + 1), 1000);
+    return () => clearInterval(id);
+  }, [refreshedAt]);
+
+  useEffect(() => {
     const id = setTimeout(() => setQuery(search), 300);
     return () => clearTimeout(id);
   }, [search]);
+
+  function changeTerminal(next) {
+    setTerminal(next);
+    setLoading(true);
+    setError(null);
+  }
+
+  function toggleStatus(status) {
+    setStatuses((prev) =>
+      prev.includes(status) ? prev.filter((s) => s !== status) : [...prev, status],
+    );
+  }
 
   const q = query.trim().toLowerCase();
   const visible = flights.filter((f) => {
@@ -64,7 +74,10 @@ export default function App() {
 
   return (
     <main className="app">
-      <h1>DFW Departures</h1>
+      <header className="masthead">
+        <h1>DFW Departures</h1>
+        {refreshedAt !== null && <span className="updated">updated {secondsAgo}s ago</span>}
+      </header>
       <FilterBar
         search={search}
         onSearchChange={setSearch}
