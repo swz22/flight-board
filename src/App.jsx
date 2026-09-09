@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchDepartures } from "./api";
+import SummaryCards from "./components/SummaryCards";
 import DeparturesBoard from "./components/DeparturesBoard";
 
 export default function App() {
@@ -31,6 +32,7 @@ export default function App() {
   return (
     <main className="app">
       <h1>DFW Departures</h1>
+      <SummaryCards flights={flights} />
       <DeparturesBoard flights={flights} />
     </main>
   );
