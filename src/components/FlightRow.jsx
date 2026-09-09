@@ -1,3 +1,5 @@
+import StatusPill from "./StatusPill";
+
 export default function FlightRow({ flight }) {
   return (
     <tr>
@@ -6,7 +8,9 @@ export default function FlightRow({ flight }) {
       <td>{flight.destination}</td>
       <td className="mono">{flight.gate ?? "Not available"}</td>
       <td className="mono">{flight.scheduled}</td>
-      <td>{flight.status}</td>
+      <td>
+        <StatusPill status={flight.status} />
+      </td>
     </tr>
   );
 }
