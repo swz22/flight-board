@@ -9,6 +9,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     let ignore = false;
@@ -28,7 +29,12 @@ export default function App() {
     };
   }, []);
 
-  const q = search.trim().toLowerCase();
+  useEffect(() => {
+    const id = setTimeout(() => setQuery(search), 300);
+    return () => clearTimeout(id);
+  }, [search]);
+
+  const q = query.trim().toLowerCase();
   const visible = flights.filter(
     (f) =>
       q === "" ||
