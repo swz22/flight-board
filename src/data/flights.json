@@ -1,0 +1,302 @@
+[
+  {
+    "id": "AA1236",
+    "flight": "AA 1236",
+    "airline": "American",
+    "destination": "Chicago O'Hare",
+    "gate": "C21",
+    "terminal": "C",
+    "scheduled": "11:40",
+    "status": "boarding"
+  },
+  {
+    "id": "DL0958",
+    "flight": "DL 958",
+    "airline": "Delta",
+    "destination": "Atlanta",
+    "gate": "E11",
+    "terminal": "E",
+    "scheduled": "11:50",
+    "status": "on time"
+  },
+  {
+    "id": "AA2417",
+    "flight": "AA 2417",
+    "airline": "American",
+    "destination": "Los Angeles",
+    "gate": "A17",
+    "terminal": "A",
+    "scheduled": "11:55",
+    "status": "on time"
+  },
+  {
+    "id": "QR0730",
+    "flight": "QR 730",
+    "airline": "Qatar Airways",
+    "destination": "Doha",
+    "gate": "D11",
+    "terminal": "D",
+    "scheduled": "12:05",
+    "status": "on time"
+  },
+  {
+    "id": "UA1189",
+    "flight": "UA 1189",
+    "airline": "United",
+    "destination": "Denver",
+    "gate": "E8",
+    "terminal": "E",
+    "scheduled": "12:10",
+    "status": "delayed"
+  },
+  {
+    "id": "AA0301",
+    "flight": "AA 301",
+    "airline": "American",
+    "destination": "New York JFK",
+    "gate": "D23",
+    "terminal": "D",
+    "scheduled": "12:20",
+    "status": "on time"
+  },
+  {
+    "id": "B60672",
+    "flight": "B6 672",
+    "airline": "jetBlue",
+    "destination": "Boston",
+    "gate": "E32",
+    "terminal": "E",
+    "scheduled": "12:30",
+    "status": "on time"
+  },
+  {
+    "id": "AA1502",
+    "flight": "AA 1502",
+    "airline": "American",
+    "destination": "Miami",
+    "gate": "C14",
+    "terminal": "C",
+    "scheduled": "12:40",
+    "status": "on time"
+  },
+  {
+    "id": "EK0222",
+    "flight": "EK 222",
+    "airline": "Emirates",
+    "destination": "Dubai",
+    "gate": "D16",
+    "terminal": "D",
+    "scheduled": "12:50",
+    "status": "on time"
+  },
+  {
+    "id": "F91821",
+    "flight": "F9 1821",
+    "airline": "Frontier",
+    "destination": "Las Vegas",
+    "gate": "E33",
+    "terminal": "E",
+    "scheduled": "12:55",
+    "status": "cancelled"
+  },
+  {
+    "id": "AA0788",
+    "flight": "AA 788",
+    "airline": "American",
+    "destination": "Seattle",
+    "gate": "A9",
+    "terminal": "A",
+    "scheduled": "13:05",
+    "status": "on time"
+  },
+  {
+    "id": "AM0023",
+    "flight": "AM 23",
+    "airline": "Aeromexico",
+    "destination": "Mexico City",
+    "gate": "D6",
+    "terminal": "D",
+    "scheduled": "13:15",
+    "status": "boarding"
+  },
+  {
+    "id": "AA0455",
+    "flight": "AA 455",
+    "airline": "American",
+    "destination": "Nashville",
+    "gate": null,
+    "terminal": "A",
+    "scheduled": "13:25",
+    "status": "delayed"
+  },
+  {
+    "id": "KE0220",
+    "flight": "KE 220",
+    "airline": "Korean Air",
+    "destination": "Seoul Incheon",
+    "gate": "D21",
+    "terminal": "D",
+    "scheduled": "13:35",
+    "status": "on time"
+  },
+  {
+    "id": "AS0611",
+    "flight": "AS 611",
+    "airline": "Alaska",
+    "destination": "Portland",
+    "gate": "E15",
+    "terminal": "E",
+    "scheduled": "13:45",
+    "status": "on time"
+  },
+  {
+    "id": "AA1090",
+    "flight": "AA 1090",
+    "airline": "American",
+    "destination": "Phoenix",
+    "gate": "C2",
+    "terminal": "C",
+    "scheduled": "13:50",
+    "status": "on time"
+  },
+  {
+    "id": "BA0192",
+    "flight": "BA 192",
+    "airline": "British Airways",
+    "destination": "London Heathrow",
+    "gate": "D33",
+    "terminal": "D",
+    "scheduled": "14:00",
+    "status": "on time"
+  },
+  {
+    "id": "SY0407",
+    "flight": "SY 407",
+    "airline": "Sun Country",
+    "destination": "Minneapolis",
+    "gate": "E27",
+    "terminal": "E",
+    "scheduled": "14:10",
+    "status": "on time"
+  },
+  {
+    "id": "AA1633",
+    "flight": "AA 1633",
+    "airline": "American",
+    "destination": "Boston",
+    "gate": "C39",
+    "terminal": "C",
+    "scheduled": "14:20",
+    "status": "delayed"
+  },
+  {
+    "id": "LH0439",
+    "flight": "LH 439",
+    "airline": "Lufthansa",
+    "destination": "Frankfurt",
+    "gate": "D22",
+    "terminal": "D",
+    "scheduled": "14:30",
+    "status": "on time"
+  },
+  {
+    "id": "DL1444",
+    "flight": "DL 1444",
+    "airline": "Delta",
+    "destination": "Salt Lake City",
+    "gate": "E12",
+    "terminal": "E",
+    "scheduled": "14:40",
+    "status": "on time"
+  },
+  {
+    "id": "AA2280",
+    "flight": "AA 2280",
+    "airline": "American",
+    "destination": "Orlando",
+    "gate": "C33",
+    "terminal": "C",
+    "scheduled": "14:50",
+    "status": "cancelled"
+  },
+  {
+    "id": "JL0011",
+    "flight": "JL 11",
+    "airline": "Japan Airlines",
+    "destination": "Tokyo Haneda",
+    "gate": "D14",
+    "terminal": "D",
+    "scheduled": "15:00",
+    "status": "on time"
+  },
+  {
+    "id": "UA0522",
+    "flight": "UA 522",
+    "airline": "United",
+    "destination": "San Francisco",
+    "gate": "E6",
+    "terminal": "E",
+    "scheduled": "15:10",
+    "status": "boarding"
+  },
+  {
+    "id": "AA0917",
+    "flight": "AA 917",
+    "airline": "American",
+    "destination": "Mexico City",
+    "gate": "D8",
+    "terminal": "D",
+    "scheduled": "15:20",
+    "status": "on time"
+  },
+  {
+    "id": "TK0031",
+    "flight": "TK 31",
+    "airline": "Turkish Airlines",
+    "destination": "Istanbul",
+    "gate": "D17",
+    "terminal": "D",
+    "scheduled": "15:35",
+    "status": "on time"
+  },
+  {
+    "id": "VB4013",
+    "flight": "VB 4013",
+    "airline": "Viva Aerobus",
+    "destination": "Monterrey",
+    "gate": "E37",
+    "terminal": "E",
+    "scheduled": "15:45",
+    "status": "on time"
+  },
+  {
+    "id": "AA1968",
+    "flight": "AA 1968",
+    "airline": "American",
+    "destination": "Washington DCA",
+    "gate": null,
+    "terminal": "C",
+    "scheduled": "16:00",
+    "status": "delayed"
+  },
+  {
+    "id": "AF0631",
+    "flight": "AF 631",
+    "airline": "Air France",
+    "destination": "Paris CDG",
+    "gate": "D26",
+    "terminal": "D",
+    "scheduled": "16:15",
+    "status": "on time"
+  },
+  {
+    "id": "QF0008",
+    "flight": "QF 8",
+    "airline": "QANTAS",
+    "destination": "Sydney",
+    "gate": "D15",
+    "terminal": "D",
+    "scheduled": "17:55",
+    "status": "boarding"
+  }
+]
