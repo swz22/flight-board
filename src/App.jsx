@@ -12,6 +12,7 @@ export default function App() {
   const [query, setQuery] = useState("");
   const [terminal, setTerminal] = useState("all");
   const [statuses, setStatuses] = useState([]);
+  const [tick, setTick] = useState(0);
 
   function toggleStatus(status) {
     setStatuses((prev) =>
@@ -38,7 +39,12 @@ export default function App() {
         setLoading(false);
       });
     return () => controller.abort();
-  }, [terminal]);
+  }, [terminal, tick]);
+
+  useEffect(() => {
+    const id = setInterval(() => setTick((t) => t + 1), 30000);
+    return () => clearInterval(id);
+  }, []);
 
   useEffect(() => {
     const id = setTimeout(() => setQuery(search), 300);
