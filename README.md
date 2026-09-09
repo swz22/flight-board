@@ -1,16 +1,34 @@
-# React + Vite
+# Flight Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An auto-refreshing DFW flight departures dashboard built with React, Vite, and simulated data.
 
-Currently, two official plugins are available:
+**Live demo:** https://flight-board-ten.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Auto-refreshes every 10 seconds with a last-updated counter
+- Simulated flight statuses that change over time
+- Debounced search across flight, airline, and destination
+- Terminal and status filters with request cancellation to prevent stale responses
+- Preserves the last successful data and displays an error after a failed refresh
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## React concepts demonstrated
 
-## Expanding the ESLint configuration
+- Component composition and props
+- State, controlled inputs, and derived data
+- Effects with cleanup for fetching, debouncing, and timers
+- Functional state updates
+- Request cancellation with `AbortController`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Data
+
+A local dataset of 30 departures is loaded through a simulated asynchronous data layer in `src/api.js`, with realistic latency and request cancellation. There is no backend or external flight service.
+
+Failure simulation is disabled by default. Append `?failures` to the URL, or visit https://flight-board-ten.vercel.app/?failures, to give each fetch an 8% chance of failing.
+
+## Running locally
+
+```bash
+npm install
+npm run dev
+```
