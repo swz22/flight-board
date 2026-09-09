@@ -11,6 +11,13 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
   const [terminal, setTerminal] = useState("all");
+  const [statuses, setStatuses] = useState([]);
+
+  function toggleStatus(status) {
+    setStatuses((prev) =>
+      prev.includes(status) ? prev.filter((s) => s !== status) : [...prev, status],
+    );
+  }
 
   function changeTerminal(next) {
     setTerminal(next);
@@ -39,13 +46,15 @@ export default function App() {
   }, [search]);
 
   const q = query.trim().toLowerCase();
-  const visible = flights.filter(
-    (f) =>
+  const visible = flights.filter((f) => {
+    const matchesQuery =
       q === "" ||
       f.flight.toLowerCase().includes(q) ||
       f.airline.toLowerCase().includes(q) ||
-      f.destination.toLowerCase().includes(q),
-  );
+      f.destination.toLowerCase().includes(q);
+    const matchesStatus = statuses.length === 0 || statuses.includes(f.status);
+    return matchesQuery && matchesStatus;
+  });
 
   return (
     <main className="app">
@@ -55,6 +64,8 @@ export default function App() {
         onSearchChange={setSearch}
         terminal={terminal}
         onTerminalChange={changeTerminal}
+        selected={statuses}
+        onToggleStatus={toggleStatus}
       />
       {error && <p className="status-msg error">Could not load departures: {error}</p>}
       {loading && <p className="status-msg">Loading departures...</p>}
