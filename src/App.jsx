@@ -4,6 +4,8 @@ import FilterBar from "./components/FilterBar";
 import SummaryCards from "./components/SummaryCards";
 import DeparturesBoard from "./components/DeparturesBoard";
 
+const REFRESH_INTERVAL_MS = 10000;
+
 export default function App() {
   const [flights, setFlights] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,6 +23,7 @@ export default function App() {
     fetchDepartures(terminal, { signal: controller.signal })
       .then((rows) => {
         setFlights(rows);
+        setError(null);
         setRefreshedAt(Date.now());
         setSecondsAgo(0);
         setLoading(false);
@@ -34,7 +37,7 @@ export default function App() {
   }, [terminal, tick]);
 
   useEffect(() => {
-    const id = setInterval(() => setTick((t) => t + 1), 30000);
+    const id = setInterval(() => setTick((t) => t + 1), REFRESH_INTERVAL_MS);
     return () => clearInterval(id);
   }, []);
 
@@ -86,9 +89,9 @@ export default function App() {
         selected={statuses}
         onToggleStatus={toggleStatus}
       />
-      {error && <p className="status-msg error">Could not load departures: {error}</p>}
-      {loading && <p className="status-msg">Loading departures...</p>}
-      {!loading && !error && (
+      {error && <p className="status-msg error">Could not refresh departures: {error}</p>}
+      {loading && flights.length === 0 && <p className="status-msg">Loading departures...</p>}
+      {flights.length > 0 && (
         <>
           <SummaryCards flights={visible} />
           <DeparturesBoard flights={visible} />
